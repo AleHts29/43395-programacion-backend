@@ -24,13 +24,13 @@ const copiedNestedArray = [hobbiesOriginal];
 
 //Usando operador Spread:
 // console.log("\n************** Spread operator: ************ \n");
-// const copiedArrayWithSpread = [...hobbiesOriginal]
-// console.log("copiedArrayWithSpread: ");
-// console.log(copiedArrayWithSpread);
-// // También nos sirve para copiar objetos:
-// const personCopiedSpread = { ...persona };
-// console.log("Persona copiada usando spread: ");
-// console.log(personCopiedSpread);
+const copiedArrayWithSpread = [...hobbiesOriginal]
+console.log("copiedArrayWithSpread: ");
+console.log(copiedArrayWithSpread);
+// También nos sirve para copiar objetos:
+const personCopiedSpread = { ...persona };
+console.log("Persona copiada usando spread: ");
+console.log(personCopiedSpread);
 
 
 

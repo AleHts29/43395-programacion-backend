@@ -51,5 +51,14 @@ objetos.forEach((objeto) => {
 const [a, b] = objetos
 const listA = [...Object.keys(a), ...Object.keys(b)]
 const values = [...Object.values(a), ...Object.values(b)].reduce((acc, value) => acc + value)
-console.log(listA);
-console.log(values);
+// console.log(listA);
+// console.log(values);
+
+
+
+
+// Nullish
+let test = undefined;
+// ... Mucha logica
+let nullish = test ?? "sin valor"
+console.log(nullish);
