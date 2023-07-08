@@ -7,6 +7,7 @@
 const UserManager = require("./UserManager.js");
 let userManager = new UserManager();
 console.log(userManager);
+
 let persistirUsuario = async () => {
     await userManager.crearUsuario("Usuario1", "Apellido1", 20, "React JS");
     let usuarios = await userManager.consultarUsuarios();

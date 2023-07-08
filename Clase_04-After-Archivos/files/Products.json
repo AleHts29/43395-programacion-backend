@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Mate",
+    "description": "Mate cocido Playaditos",
+    "price": 550,
+    "thumbnail": "http://mate.png",
+    "code": "MA720CO",
+    "stock": 45
+  },
+  {
+    "title": "Cafe",
+    "description": "Cafe tostado Juan Valdez",
+    "price": 2000,
+    "thumbnail": "http://cafe.png",
+    "code": "CA45CO",
+    "stock": 35
+  },
+  {
+    "title": "Cafe",
+    "description": "Cafe tostado Juan Valdez",
+    "price": 2000,
+    "thumbnail": "http://cafe.png",
+    "code": "CA45CO",
+    "stock": 35
+  }
+]
