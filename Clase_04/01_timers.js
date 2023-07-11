@@ -19,7 +19,7 @@ let contador = () => {
 
     let timer = setInterval(() => {
         console.log(contador++);
-        if (contador > 5) {
+        if (contador > 7) {
             clearInterval(timer)
         }
     }, 1000)
