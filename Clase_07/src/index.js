@@ -61,7 +61,6 @@ app.put('/api/users/:userId', (req, res) => {
 
 
 
-
 // DELETE
 app.delete('/api/users/:userId', (req, res) => {
     let userId = parseInt(req.params.userId);
