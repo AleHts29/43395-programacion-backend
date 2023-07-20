@@ -6,7 +6,12 @@ const router = Router();
 let pets = [];
 
 
-
+// middleware a nivel de router
+router.use(function (request, response, next) {
+    console.log("Mi propio middleware a nivel de ROUTER!!.");
+    console.log("Time: " + Date().toLocaleString());
+    next();
+});
 
 router.get('/', (request, response) => {
     console.log("Consumiendo api GET /api/users..");
@@ -35,12 +40,7 @@ router.post('/', (request, response) => {
 /*=============================================
 =                   Section_02                =
 =============================================*/
-// middleware a nivel de router
-router.use(function (request, response, next) {
-    console.log("Mi propio middleware a nivel de ROUTER!!.");
-    console.log("Time: " + Date().toLocaleString());
-    next();
-});
+
 
 // Aplicando Middleware
 function miMiddleware(request, response, next) {
