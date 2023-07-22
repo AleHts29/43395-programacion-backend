@@ -22,10 +22,11 @@ const storage = multer.diskStorage(
         filename: function (req, file, cb) {
             // console.log(file);
             cb(null, `${Date.now()}-${file.originalname}`)
+
         }
     }
 )
-
+// este seria nuestro Middleware
 export const uploader = multer({
     storage,
     // si se genera algun error, lo capturamos
@@ -34,4 +35,7 @@ export const uploader = multer({
         next();
     }
 });
+
+
+export const pruebaString = "Esto es una prueba de export"
 

@@ -1,5 +1,10 @@
 import { Router } from "express";
 import { uploader } from "../utils.js";
+import miDirName from "../utils.js" // por defecto exporta __dirname
+
+
+
+
 
 const router = Router();
 
@@ -12,6 +17,7 @@ router.use(function (request, response, next) {
     console.log("Time: " + Date().toLocaleString());
     next();
 });
+
 
 router.get('/', (request, response) => {
     console.log("Consumiendo api GET /api/users..");
@@ -65,16 +71,16 @@ router.get('/middleware', miMiddleware, (request, response) => {
 =                   Section_03                =
 =============================================*/
 // Usando Multer
-router.post("/profile", uploader.single('file'), (request, response) => {
-    if (!request.file) {
+router.post("/profile", uploader.array('file'), (request, response) => {
+    if (!request.files) {
         return response.status(400).send({ status: "error", mensaje: "No se adjunto archivo." });
     }
-    console.log(request.file);
+    console.log(request.files);
 
     // Persistimos una mascota con su foto
     let pet = request.body;
     pet.id = Math.floor(Math.random() * 20 + 1);
-    pet.image = request.file.path;
+    pet.image = request.files[0].path;
     if (!pet.nombre || !pet.especie) {
         console.error("Mascota no es valida.");
         console.error(pet);
