@@ -1,7 +1,7 @@
 import express from 'express';
 import handlebars from 'express-handlebars'
 import __dirname from './utils.js';
-// import usersRoutes from './routes/users.routes.js'
+import usersRoutes from './routes/views.router.js'
 
 const app = express();
 const PORT = 9090;
@@ -23,17 +23,19 @@ app.set('view engine', 'handlebars');
 
 
 
-app.get('/', (req, res) => {
-    // usuario de prueba
-    let testUser = {
-        name: 'Santiago',
-        last_name: 'Kosacoff',
-        edad: 26
-    }
-    res.render('hello', testUser);
-})
+// app.get('/', (req, res) => {
+//     // usuario de prueba
+//     let testUser = {
+//         name: 'Santiago',
+//         last_name: 'Kosacoff',
+//         edad: 26
+//     }
+//     res.render('hello', testUser);
+// })
 
 
+
+app.use('/', usersRoutes);
 
 
 
