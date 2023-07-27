@@ -39,8 +39,6 @@ app.use('/', usersRoutes);
 
 
 
-
-
 app.listen(PORT, () => {
     console.log(`server run on port: ${PORT}`);
 })
