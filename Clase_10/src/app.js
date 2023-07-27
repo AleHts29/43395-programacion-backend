@@ -42,10 +42,10 @@ socketServer.on('connection', socket => {
 
     socket.emit('msg_02', "Mensaje desde el back!!")
 
-    // socket.broadcast.emit("evento_para_todos_excepto_socket_actual", "Este evento es para todos los sockets, menos el socket desde que se emitió el mensaje!")
+    socket.broadcast.emit("evento_para_todos_excepto_socket_actual", "Este evento es para todos los sockets, menos el socket desde que se emitió el mensaje!")
 
 
-    // socketServer.emit("evento_para_todos", "Evento para todos los Sockets!");
+    socketServer.emit("evento_para_todos", "Evento para todos los Sockets!");
 
 })
 
