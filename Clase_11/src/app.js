@@ -48,7 +48,7 @@ socketServer.on('connection', socket => {
     })
 
     socket.on('userConnected', data => {
-        socket.broadcast.emit('userConnected', data);
+        socket.broadcast.emit('userConnected', data.user);
     })
 
     // socket.disconnect()

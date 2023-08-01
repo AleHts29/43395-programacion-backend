@@ -17,7 +17,7 @@ Swal.fire({
             return "Necesitas escribir tu Nombre"
         } else {
             // Esto lo hacemos despues del breack!!
-            socket.emit('userConnected', { user: user })
+            socket.emit('userConnected', { user: value })
         }
     },
     allowOutsideClick: false // esto es para no dejar pasar al usuario si no completa el input, dando cli-ck afuera.
@@ -60,7 +60,7 @@ socket.on('messageLogs', data => {
 // Formato --> { user: "Pepe" }
 socket.on('userConnected', data => {
     console.log(data);
-    let message = `Nuevo usuario conectado: ${data.user}`
+    let message = `Nuevo usuario conectado: ${data}`
     Swal.fire({
         icon: "info",
         title: 'Nuevo usuario entra al chat!!',
