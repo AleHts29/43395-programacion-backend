@@ -1,0 +1,18 @@
+<div>
+    <h1>Bienvenidos al Chat de la CAMADA - 43395</h1>
+    <h2>Nombre: <span id="myName"></span></h2>
+
+
+    {{!-- Inputs del mensaje de los usuarios --}}
+    <div>
+        <p>Escribe un mensaje: <input id="chatBox" type="text"></p>
+    </div>
+
+    {{!-- Cuadro de renderizado de los mensajes --}}
+    <div>
+        <p id="messageLogs"></p>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/messages.js"></script>
