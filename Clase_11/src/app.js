@@ -5,7 +5,7 @@ import viewRouter from './routes/view.router.js'
 import { Server } from 'socket.io'
 
 const app = express();
-const PORT = 9090;
+const PORT = process.env.PORT || 8080;
 
 //Preparar la configuracion del servidor para recibir objetos JSON.
 app.use(express.json());
@@ -51,6 +51,11 @@ socketServer.on('connection', socket => {
         socket.broadcast.emit('userConnected', data);
     })
 
+    // socket.disconnect()
+    socket.on('closeChat', data => {
+        if (data.close === 'close')
+            socket.disconnect();
+    })
 
 })
 

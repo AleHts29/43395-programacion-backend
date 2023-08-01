@@ -59,6 +59,7 @@ socket.on('messageLogs', data => {
 // Aqui escuchamos los nuevos usuarios que se conectan al chat
 // Formato --> { user: "Pepe" }
 socket.on('userConnected', data => {
+    console.log(data);
     let message = `Nuevo usuario conectado: ${data.user}`
     Swal.fire({
         icon: "info",
@@ -66,4 +67,13 @@ socket.on('userConnected', data => {
         text: message,
         toast: true,
     })
+})
+
+
+// Extra
+// close chatBox
+const closeChatBox = document.getElementById('closeChatBox')
+closeChatBox.addEventListener('click', evt => {
+    socket.emit('closeChat', { close: "close" })
+    messageLog.innerHTML = '';
 })
