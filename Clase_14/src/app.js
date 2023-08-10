@@ -21,5 +21,14 @@ app.listen(9090, () => {
 
 
 // Declaramos temas de conccion con la DB 
-
-
+const DB = 'mongodb+srv://c43395:admin@cluster0.lgoy2ny.mongodb.net/clase14?retryWrites=true&w=majority'
+const connectMongoDB = async () => {
+    try {
+        await mongoose.connect(DB);
+        console.log("Conectado con exito a MongoDB usando Mongoose");
+    } catch (error) {
+        console.error("No se pudo conectar a la BD usando Moongose: " + error);
+        process.exit();
+    }
+}
+connectMongoDB();
