@@ -1,7 +1,7 @@
 {
-  "name": "clase16-mongodb-mongoose-avanzado-parte1",
+  "name": "practica-integradora-express-mongodb-handlebars",
   "version": "1.0.0",
-  "description": "Indexes y populate con mongoose.",
+  "description": "Practica integradora para unir todas lo desarrollado en el curso hasta ahora.",
   "main": "app.js",
   "type": "module",
   "scripts": {

@@ -27,6 +27,18 @@ const connectMongoDB = async () => {
         await mongoose.connect('mongodb://localhost:27017/clase16_indexes_populate?retryWrites=true&w=majority');
         console.log("Conectado con exito a MongoDB usando Moongose.");
 
+        // Aqui vamos a realizar las pruebas de performance
+        let response1 = await userModel.find().explain('executionStats')
+        console.log(response1);
+
+        console.log("Busqueda por usuario...\n");
+        let response2 = await userModel.find({ first_name: "Celia" }).explain('executionStats')
+        console.log(response2);
+
+
+
+
+
 
     } catch (error) {
         console.error("No se pudo conectar a la BD usando Moongose: " + error);

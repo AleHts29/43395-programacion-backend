@@ -18,7 +18,7 @@ const stringTypeSchemaNonUniqueRequired = {
 const userSchema = new mongoose.Schema({
     first_name: {
         type: String,
-        index: false
+        index: true
     },
     // first_name: stringTypeSchemaNonUniqueRequired,
     last_name: stringTypeSchemaNonUniqueRequired,
