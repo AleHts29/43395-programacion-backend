@@ -21,7 +21,7 @@ app.listen(9090, () => {
 
 
 // Declaramos temas de conccion con la DB 
-const DB = 'mongodb+srv://c43395:admin@cluster0.lgoy2ny.mongodb.net/clase14?retryWrites=true&w=majority'
+const DB = 'mongodb+srv://c43395:<password></password>@cluster0.lgoy2ny.mongodb.net/clase14?retryWrites=true&w=majority'
 const connectMongoDB = async () => {
     try {
         await mongoose.connect(DB);
