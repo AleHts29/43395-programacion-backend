@@ -3,7 +3,6 @@ import handlebars from 'express-handlebars';
 import __dirname from './utils.js';
 import viewsRouter from './routes/views.router.js';
 
-
 import session from 'express-session';
 
 const app = express();
@@ -12,7 +11,11 @@ app.engine('handlebars', handlebars.engine());
 app.set('views', __dirname + '/views')
 app.set('view engine', 'handlebars');
 
-
+app.use(session({
+    secret: "coderS3cret",
+    resave: true,
+    saveUninitialized: true
+}))
 
 app.use('/', viewsRouter);
 

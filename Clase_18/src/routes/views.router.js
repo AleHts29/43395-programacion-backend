@@ -36,8 +36,58 @@ router.get("/deleteCookie", (req, res) => {
 })
 
 
+/*=============================================
+=                   2da Parte                 =
+=============================================*/
+
+//Session management:
+router.get("/session", (req, res) => {
+    if (req.session.counter) {
+        req.session.counter++;
+        res.send(`Se ha visitado este sitio ${req.session.counter} veces.`)
+    } else {
+        req.session.counter = 1;
+        res.send("Bienvenido!!")
+    }
+})
+
+// destruir la session
+router.get("/logout", (req, res) => {
+    req.session.destroy(error => {
+        if (error) {
+            res.json({ error: "error de logout", msg: "Error al cerrar la sesion" })
+        }
+        res.send("Sesion cerrada correctamente!!")
+    })
+})
+
+// login
+router.get('/login', (req, res) => {
+    // Logica
+    const { username, password } = req.query;
+    if (username !== 'pepe' || password !== '123qwe') {
+        return res.status(401).send("Login Failed, check your username and password")
+    } else {
+        req.session.user = username;
+        req.session.user = true;
+        res.send("Login Success!")
+    }
+})
+
+//Auth middleware:
+function auth(req, res, next) {
+    if (req.session.user === 'pepe' && req.session.admin) {
+        return next()
+    } else {
+        return res.status(403).send('Usuario no autorizado para ingresar a este recurso..')
+    }
+}
 
 
+router.get("/private", auth, (req, res) => {
+    // Logica
+    res.send("Si estas viendo esto, es porque pasaste la autorizacion y sos un ADMIN!!")
+})
 
 
 export default router;
