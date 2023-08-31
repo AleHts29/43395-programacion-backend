@@ -4,6 +4,9 @@ import __dirname from './utils.js';
 
 // dependencias para las sessions
 import session from 'express-session';
+import FileStore from 'session-file-store'
+import MongoStore from 'connect-mongo'
+import mongoose from 'mongoose';
 
 
 
@@ -39,9 +42,15 @@ app.use(session({
     //path: Ruta a donde se buscará el archivo del session store.
 
     // Usando --> session-file-store
+    // store: new fileStorage({ path: "./sessions", ttl: 15, retries: 0 }),
 
 
     // Usando --> connect-mongo
+    store: MongoStore.create({
+        mongoUrl: MONGO_URL,
+        // mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true },
+        ttl: 10
+    }),
 
 
     secret: "coderS3cr3t",

@@ -3,16 +3,18 @@ import { Router } from "express";
 const router = Router();
 
 router.get("/login", (req, res) => {
-    // Falta implementacion
+    res.render('login')
 });
 
 router.get("/register", (req, res) => {
-    // Falta implementacion
+    res.render('register')
 });
 
-// Cuaando ya tenemos una session activa con los datos del user, renderizamos la vista profile
+// Cuando ya tenemos una session activa con los datos del user, renderizamos la vista profile
 router.get("/", (req, res) => {
-    // Falta implementacion
+    res.render('profile', {
+        user: req.session.user
+    })
 });
 
 export default router;
