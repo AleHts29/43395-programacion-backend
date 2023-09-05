@@ -18,7 +18,8 @@ router.post("/register", async (req, res) => {
         last_name,
         email,
         age,
-        password //se encriptara despues...
+        // password //se encriptara despues...
+        password: createHash(password)
     };
     const result = await userModel.create(user);
     res.status(201).send({ status: "success", message: "Usuario creado con extito con ID: " + result.id });
@@ -31,7 +32,10 @@ router.post("/login", async (req, res) => {
 
     if (!user) return res.status(401).send({ status: "error", error: "Incorrect credentials" });
 
-
+    // Validacion con bcrypt
+    if (!isValidPassword(user, password)) {
+        return res.status(401).send({ status: "error", error: "Incorrect credentials" });
+    }
 
 
     req.session.user = {

@@ -38,7 +38,9 @@ app.use(session({
 }));
 
 //TODO: Middlewares Passport
-
+initializePassport();
+app.use(passport.initialize())
+app.use(passport.session())
 
 
 

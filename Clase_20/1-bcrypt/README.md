@@ -9,3 +9,10 @@ bcrypt, como un algoritmo de hash adaptativo, no determina directamente si una c
 3. Verificación de la contraseña ingresada: La aplicación toma la contraseña ingresada por el usuario, combina la sal almacenada con esta contraseña y luego aplica bcrypt al resultado. Si el hash resultante coincide con el hash almacenado en la base de datos, la contraseña se considera válida.
 
 En resumen, bcrypt no determina por sí mismo si una contraseña es válida o no. En su lugar, se utiliza para verificar si la contraseña ingresada por el usuario es la misma que la contraseña almacenada en la base de datos mediante la comparación de los hashes generados a partir de ambas contraseñas, teniendo en cuenta la sal asociada. Si coinciden, se considera que la contraseña es válida y se permite el acceso. Si no coinciden, la contraseña se considera incorrecta y se deniega el acceso.
+
+## Links
+- https://bcrypt.online/
+
+- https://security.stackexchange.com/questions/17207/recommended-of-rounds-for-bcrypt/17238#17238
+
+- https://en.wikipedia.org/wiki/Bcrypt
