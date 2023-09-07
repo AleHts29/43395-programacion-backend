@@ -29,6 +29,13 @@ export const generateJWToken = (user) => {
 };
 
 
+/**
+ * Metodo que autentica el token JWT para nuestros requests.
+ * OJO: Esto actúa como un middleware, observar el next.
+ * @param {*} req Objeto de request
+ * @param {*} res Objeto de response
+ * @param {*} next Pasar al siguiente evento.
+ */
 export const authToken = (req, res, next) => {
     //El JWT token se guarda en los headers de autorización.
     const authHeader = req.headers.authorization;
