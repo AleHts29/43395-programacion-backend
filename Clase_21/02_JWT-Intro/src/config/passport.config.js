@@ -13,12 +13,12 @@ const initializePassport = () => {
      */
     /*=============================================
     =                GitHubStrategy               =
-   =============================================*/
+    =============================================*/
     // TODO: Estrategia de Login con GitHub
     passport.use('github', new GitHubStrategy(
         {
-            clientID: 'Iv1.1e78db8dda19e717',
-            clientSecret: 'b34a986e954a34643dffc94b5fbbbf3961c0daf9',
+            clientID: '< Replace-clientID >',
+            clientSecret: '< Replace-clientSecret >',
             callbackUrl: 'http://localhost:9090/api/sessions/githubcallback'
         },
         async (accessToken, refreshToken, profile, done) => {
