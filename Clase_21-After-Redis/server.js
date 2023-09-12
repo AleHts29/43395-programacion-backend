@@ -18,12 +18,8 @@ client.AUTH('XXXXXXXXXXXXXXXX', (err) => {
 import connectRedis from 'connect-redis';
 const RedisStore = connectRedis(session);
 
-
-
-
-const PORT = 8080
-
 const app = express();
+const PORT = 8080
 
 // confi sessions
 app.use(session({
