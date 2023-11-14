@@ -1,0 +1,74 @@
+paths:
+  /api/users/:
+    get:
+      summary: Obtiene todos los usuarios disponibles en la aplicación.
+      tags:
+        - Users
+      responses:
+        "200":
+          description: La opercion fue exitosa!, se retorna un arrglo con los usuarios.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/User'
+        "400":
+          description: Se envió un dato no esperado.
+        "500":
+          description: Error inesperado del servidor, no se puede manejar el proceso.
+
+  /api/users/{uid}:
+    get:
+      summary: Obtiene un usuario por id disponibles en la aplicación.
+      tags:
+        - Users
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: El id del usuario se debe ingresar.
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: La opercion fue exitosa!, se retorna un arrglo con los usuarios.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/User'
+        "400":
+          description: Se envió un dato no esperado.
+        "500":
+          description: Error inesperado del servidor, no se puede manejar el proceso.
+
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado de Mongo.
+        first_name: 
+          type: String
+          description: Nombre del usuario
+        last_name: 
+          type: String
+          description: Apellido del usuario
+        email: 
+          type: String
+          description: email del usuario
+        password: 
+          type: String
+          description: contraseña del usuario
+      example:
+        _id: ObjectId("647fa8c9e46dbc5a20320181")
+        first_name: Usuario de prueba 1
+        last_name: Apellido de prueba 1
+        email: correodeprueba1@gmail.com
+        password: $2b$10$OQA9JT4yRt8NgItEftA0JeSDncDbdqN9TFXiW..69klEUIQ01tcau
+
